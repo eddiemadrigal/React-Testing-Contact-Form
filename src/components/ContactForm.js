@@ -2,10 +2,13 @@ import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 
 const ContactForm = () => {
+
   const [data, setData] = useState();
+
   const { register, errors, handleSubmit, reset } = useForm({
     mode: "onBlur"
   });
+
   const onSubmit = data => {
     setData(data);
   };
@@ -16,9 +19,10 @@ const ContactForm = () => {
         <div>
           <label htmlFor="firstName">First Name*</label>
           <input
+            id="firstName"
             name="firstName"
-            placeholder="bill"
-            ref={register({ required: true, maxLength: 3 })}
+            placeholder="First Name"
+            ref={register({ required: true, minLength: 2, maxLength: 10 })}
           />
           {errors.firstName && (
             <p>Looks like there was an error: {errors.firstName.type}</p>
@@ -28,8 +32,9 @@ const ContactForm = () => {
         <div>
           <label htmlFor="lastName">Last Name*</label>
           <input
+            id="lastName"
             name="lastName"
-            placeholder="luo"
+            placeholder="Last Name"
             ref={register({ required: true })}
           />
           {errors.lastName && (
@@ -38,17 +43,25 @@ const ContactForm = () => {
         </div>
 
         <div>
-          <label htmlFor="email" placeholder="bluebill1049@hotmail.com">
+          <label htmlFor="email" placeholder="Email">
             Email*
           </label>
-          <input name="email" ref={register({ required: true })} />
+          <input 
+            id="email"
+            name="email" 
+            ref={register({ required: true })} 
+          />
           {errors.email && (
             <p>Looks like there was an error: {errors.email.type}</p>
           )}
         </div>
         <div>
           <label htmlFor="message">Message</label>
-          <textarea name="message" ref={register({ required: false })} />
+          <textarea 
+            id="message"
+            name="message" 
+            ref={register({ required: false })} 
+          />
         </div>
         {data && (
           <pre style={{ textAlign: "left", color: "white" }}>
