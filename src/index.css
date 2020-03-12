@@ -28,6 +28,10 @@ p {
   color: #bf1650;
 }
 
+.footer {
+  text-align: center;
+}
+
 p::before {
   display: inline;
   content: "⚠ ";
