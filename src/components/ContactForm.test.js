@@ -1,5 +1,6 @@
 import React from "react";
 import { render, getByText, fireEvent } from "@testing-library/react";
+import { act } from 'react-dom/test-utils';
 import ContactForm from "./ContactForm";
 
 test("Renders ContactForm without crashing", () => {
@@ -9,30 +10,28 @@ test("Renders ContactForm without crashing", () => {
 test("Contact form adds contact", () => {
 
     const { getByLabelText, getByText } = render(<ContactForm />);
-    
-    const firstNameInput = getByLabelText(/firstName/i);
-    const lastNameInput  = getByLabelText(/lastName/i);
-    const emailInput     = getByLabelText(/email/i);
-    const messageInput   = getByLabelText(/message/i);
+    const firstNameInput = getByLabelText(/First Name/i);
+    const lastNameInput  = getByLabelText(/Last Name/i);
+    const emailInput     = getByLabelText(/Email/i);
+    const messageInput   = getByLabelText(/Message/i);
+    const submitButton = getByText(/submit/i);
 
-    fireEvent.change( firstNameInput, {
+    fireEvent.blur( firstNameInput, {
         target: { name: "firstName", value: "Eddie" }
     });
 
-    fireEvent.change( lastNameInput, {
+    fireEvent.blur( lastNameInput, {
         target: { name: "lastName", value: "Madrigal" }
     });
 
-    fireEvent.change( emailInput, {
+    fireEvent.blur( emailInput, {
         target: { name: "email", value: "edmadrigal@yahoo.com" }
     });
 
-    fireEvent.change( messageInput, {
+    fireEvent.blur( messageInput, {
         target: { name: "message", value: "test message" }
     });
 
-    console.log(firstNameInput.value);
-    const submitButton = getByText(/submit/i);
     fireEvent.click(submitButton);
 
 });

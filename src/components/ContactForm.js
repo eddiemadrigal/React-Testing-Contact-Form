@@ -6,7 +6,7 @@ const ContactForm = () => {
   const [data, setData] = useState();
 
   const { register, errors, handleSubmit, reset } = useForm({
-    mode: "onChange"
+    mode: "onBlur"
   });
 
   const onSubmit = data => {
@@ -15,18 +15,17 @@ const ContactForm = () => {
 
   return (
     <div className="App">
-      <form onSubmit = {e => handleSubmit(e)}>
-
+      <form onSubmit={handleSubmit(onSubmit)}>
         <div>
           <label htmlFor="firstName">First Name*</label>
           <input
             id="firstName"
             name="firstName"
             placeholder="First Name"
-            ref={register({ required: true })}
+            ref={register({ required: true, minLength: 2, maxLength: 10 })}
           />
-          {errors.lastName && (
-            <p>Looks like there was an error: {errors.lastName.type}</p>
+          {errors.firstName && (
+            <p>Looks like there was an error: {errors.firstName.type}</p>
           )}
         </div>
 
@@ -69,7 +68,7 @@ const ContactForm = () => {
             {JSON.stringify(data, null, 2)}
           </pre>
         )}
-        <button>Submit</button>
+        <input type="submit" value="submit"/>
       </form>
     </div>
   );
