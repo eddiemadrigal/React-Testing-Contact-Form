@@ -26,7 +26,7 @@ As a developer, you will be writing tests for every component. As we've learned,
 - [ ] Start up the app using `npm start`.
 - [ ] Create a new branch: git checkout -b `<firstName-lastName>`.
 - [ ] Implement the project on your newly created `<firstName-lastName>` branch, committing changes regularly.
-- [ ] Push commits: git push origin `<firstName-lastName>`.
+- [ ] Push commits: git push origin `<firstName-lastName>`. 
 
 **Test Runner**
 - [ ] In a new terminal window, run `npm test`
