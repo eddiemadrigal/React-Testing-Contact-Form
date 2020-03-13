@@ -25,7 +25,7 @@ const ContactForm = () => {
             ref={register({ required: true, minLength: 2, maxLength: 10 })}
           />
           {errors.firstName && (
-            <p>Looks like there was an error: {errors.firstName.type}</p>
+            <p className="error">Looks like there was an error: {errors.firstName.type}</p>
           )}
         </div>
 
@@ -38,7 +38,7 @@ const ContactForm = () => {
             ref={register({ required: true })}
           />
           {errors.lastName && (
-            <p>Looks like there was an error: {errors.lastName.type}</p>
+            <p className="error">Looks like there was an error: {errors.lastName.type}</p>
           )}
         </div>
 
@@ -52,7 +52,7 @@ const ContactForm = () => {
             ref={register({ required: true })} 
           />
           {errors.email && (
-            <p>Looks like there was an error: {errors.email.type}</p>
+            <p className="error">Looks like there was an error: {errors.email.type}</p>
           )}
         </div>
         <div>
@@ -76,7 +76,7 @@ const ContactForm = () => {
             <label htmlFor="tos"> I accept the <a href="https://tos.gov">Terms of Service</a></label>
           </div>
           {errors.tos && (
-            <p>Looks like there was an error: {errors.tos.type}</p>
+            <p className="error">Looks like there was an error: {errors.tos.type}</p>
           )}
         </div>
 
