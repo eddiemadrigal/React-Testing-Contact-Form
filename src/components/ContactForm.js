@@ -5,8 +5,8 @@ const ContactForm = () => {
 
   const [data, setData] = useState();
 
-  const { register, errors, handleSubmit, reset } = useForm({
-    mode: "onBlur"
+  const { register, errors, handleSubmit } = useForm({
+    mode: "onChange"
   });
 
   const onSubmit = data => {
@@ -73,7 +73,7 @@ const ContactForm = () => {
               value="acceptTOS" 
               ref={register({ required: true })}
             />
-            <label htmlFor="tos"> I accept the <a href="#">Terms of Service</a></label>
+            <label htmlFor="tos"> I accept the <a href="https://tos.gov">Terms of Service</a></label>
           </div>
           {errors.tos && (
             <p>Looks like there was an error: {errors.tos.type}</p>
