@@ -1,6 +1,5 @@
 import React from "react";
 import { render, fireEvent, wait } from "@testing-library/react";
-import { act } from 'react-dom/test-utils';
 import ContactForm from "./ContactForm";
 
 test("Renders ContactForm without crashing", () => {
