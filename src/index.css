@@ -49,6 +49,21 @@ textarea {
   font-size: 14px;
 }
 
+#tosSection {
+  display: flex;
+  width: 45%;
+  margin: 40px auto -10px;
+}
+
+#tosSection input {
+  width: 10%;
+  margin-top: 8px;
+}
+
+#tosSection label {
+  margin-top: 0;
+}
+
 label {
   line-height: 2;
   text-align: left;

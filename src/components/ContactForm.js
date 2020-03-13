@@ -63,6 +63,23 @@ const ContactForm = () => {
             ref={register({ required: false })} 
           />
         </div>
+
+        <div>
+          <div id="tosSection">
+            <input 
+              type="checkbox" 
+              id="tos" 
+              name="tos" 
+              value="acceptTOS" 
+              ref={register({ required: true })}
+            />
+            <label htmlFor="tos"> I accept the <a href="#">Terms of Service</a></label>
+          </div>
+          {errors.tos && (
+            <p>Looks like there was an error: {errors.tos.type}</p>
+          )}
+        </div>
+
         {data && (
           <pre style={{ textAlign: "left", color: "white" }}>
             {JSON.stringify(data, null, 2)}
